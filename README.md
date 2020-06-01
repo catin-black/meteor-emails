@@ -1,8 +1,19 @@
 # .meteoremails
+
 ![.meteoremails](http://meteoremails.com/image/cover.jpg)
+
+## About the project
+
+[Project web page](https://meteoremails.com)
+
 Send cold emails for free!
+
 Completely free and open source project to fight against stagnation in your company, caused by the COVID-19 pandemic!
 Download, run and rock your sales!
+
+
+![.meteoremails](http://meteoremails.com/image/dashboard-analytics.png)
+
 
 ## Getting Started
 1. Install Node.js - https://nodejs.org/en/download/
@@ -25,6 +36,10 @@ Download, run and rock your sales!
 	```
 	> meteor npm install && meteor --settings settings.json
 	```
+
+## Sendgrid
+This application is using the SendGrid SMTP server to send emails. All you need is to create an account on sendgrid.com, create an API key and paste it to the app.
+SendGrid is a Denver, Colorado-based customer communication platform for transactional and marketing email. The company was founded by Isaac Saldana, Jose Lopez, and Tim Jenkins in 2009, and incubated through the Techstars accelerator program. Now is a part of the Twilio company.
 
 ## Upload to server
 If you do not want to use it on the local machine, you can upload it to your server. The tool that can help you with that is available here: http://meteor-up.com/. Meteor Up is a production-quality tool to setup servers and deploy your Meteor apps to them
