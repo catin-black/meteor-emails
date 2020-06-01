@@ -1,0 +1,67 @@
+<template name="partialPanelSidebar">
+    <div class="sidebar" data-color="black" data-active-color="white">
+        <div class="logo">
+            <a href="/panel/dashboard" class="text-lowercase simple-text logo-normal pl-3">
+                .meteoremails
+            </a>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li class="{{isActiveRoute 'panelDashboard'}}">
+                    <a href="{{pathFor 'panelDashboard'}}">
+                        <i class="nc-icon nc-bank"></i>
+                        <p>{{_ "menu.item.dashboard"}}</p>
+                    </a>
+                </li>
+                <li class="{{isActiveRoute 'panelCrm'}}">
+                    <a href="{{pathFor 'panelCrm'}}">
+                        <i class="nc-icon nc-tile-56"></i>
+                        <p>{{_ "menu.item.crm"}}</p>
+                    </a>
+                </li>
+                <li class="{{isActiveRoute 'panelCampaigns'}}">
+                    <a href="{{pathFor 'panelCampaigns'}}">
+                        <i class="nc-icon nc-send"></i>
+                        <p>{{_ "menu.item.campaigns"}}</p>
+                    </a>
+                </li>
+                <li class="{{isActiveRoute 'panelEmails'}}">
+                    <a href="{{pathFor 'panelEmails'}}">
+                        <i class="nc-icon nc-email-85"></i>
+                        <p>{{_ "menu.item.all"}}</p>
+                    </a>
+                </li>
+                <li class="{{isActiveRoute 'panelPromisingProspects'}}">
+                    <a href="{{pathFor 'panelPromisingProspects'}}">
+                        <i class="nc-icon nc-diamond"></i>
+                        <p>{{_ "menu.item.promising"}}</p>
+                    </a>
+                </li>
+                <li class="{{isActiveRoute 'panelGdpr'}}">
+                    <a href="{{pathFor 'panelGdpr'}}">
+                        <i class="nc-icon nc-badge"></i>
+                        <p>{{_ "menu.item.gdpr"}}</p>
+                    </a>
+                </li>
+                <li class="{{isActiveRoute 'panelIntegrations'}}">
+                    <a href="{{pathFor 'panelIntegrations'}}">
+                        <i class="nc-icon nc-atom"></i>
+                        <p>{{_ "menu.item.integrations"}}</p>
+                    </a>
+                </li>
+                <li class="{{isActiveRoute 'panelSettings'}}">
+                    <a href="{{pathFor 'panelSettings'}}">
+                        <i class="nc-icon nc-settings-gear-65"></i>
+                        <p>{{_ "menu.item.settings"}}</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="logout">
+                        <i class="nc-icon nc-button-power"></i>
+                        <p>{{_ "menu.item.out"}}</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</template>

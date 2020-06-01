@@ -1,0 +1,19 @@
+<template name="pagePanelPromisingProspects">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-plain">
+                <div class="card-header">
+                    <div class="card-header">
+                        <h4 class="card-title">{{_ 'pro.table.table'}}</h4>
+                        <p class="card-category"> {{_ 'pro.table.here'}}</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {{> tabular table=TabularTables.Pro selector=selector class="table table-hover"}}
+                    <button type="button" id="export" class="btn btn-primary"><i class="fa fa-cloud-upload mt-1 mb-1 mr-2"></i>{{_ 'pro.table.export'}}</button>
+                    <button type="button" id="markUsed" class="btn btn-primary"><i class="fa fa-envelope-open-o mt-1 mb-1 mr-2"></i>{{_ 'pro.table.used'}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,46 @@
+<template name="add">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-user">
+                <div class="card-header">
+                    <h3 class="card-title">{{member.name}} {{member.surname}}</h3>
+                </div>
+                <div class="card-body">
+                    {{#autoForm collection="Members" type="insert" id="memberAdd"}}
+                    <div class="form-group">
+                        {{> afQuickField name="name" id="name" label=(_ "modalAddNewContact.name")}}
+                    </div>
+                    <div class="form-group">
+                        {{> afQuickField name="surname" id="surname" label=(_ "modalAddNewContact.surname")}}
+                    </div>
+                    <div class="form-group">
+                        {{> afQuickField name="email" id="email" label=(_ "modalAddNewContact.email")}}
+                    </div>
+                    <div class="form-group">
+                        {{> afQuickField name="company" id="company" label=(_ "modalAddNewContact.company")}}
+                    </div>
+                    <div class="form-group">
+                        {{> afQuickField name="title" id="title" label=(_ "modalAddNewContact.title")}}
+                    </div>
+                    <div class="form-group">
+                        {{> afQuickField name="www" id="www" label=(_ "modalAddNewContact.www")}}
+                    </div>
+                    <div class="form-group">
+                        {{> afQuickField name="industry" id="industry" label=(_ "modalAddNewContact.industry")}}
+                    </div>
+                    <div class="form-group">
+                        {{> afQuickField name="size" id="size" label=(_ "modalAddNewContact.size")}}
+                    </div>
+                    <div class="form-group">
+                        {{> afQuickField name="location" id="location" label=(_ "modalAddNewContact.location")}}
+                    </div>
+                    <div class="form-group">
+                        {{> afQuickField name="linkedin" id="linkedin" label=(_ "modalAddNewContact.linkedin")}}
+                    </div>
+                    <button type="submit" class="btn btn-primary">{{{_ "crm.import.add"}}}</button>
+                    {{/autoForm}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

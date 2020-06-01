@@ -1,0 +1,16 @@
+<template name="previewCampaign">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-plain">
+                <div class="card-header">
+                    <div class="card-header">
+                        <h4 class="card-title">{{{_ 'campaign.table.info' info.name}}}</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {{> tabular table=TabularTables.Messages selector=selector class="table table-hover"}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

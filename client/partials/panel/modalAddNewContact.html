@@ -1,0 +1,62 @@
+<template name="modalAddNewContact">
+    {{#autoForm id="addNewMemberForm" collection="Members"}}
+    <div class="modal fade bd-modal-lg" id="addNewContact" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{{_ "modalAddNewContact.addNew"}}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card card-user">
+                        <div class="card-header">
+                            <p>{{{_ "modalAddNewContact.addNew"}}}</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        {{> afQuickField name="name" id="name" label=(_ "modalAddNewContact.name")}}
+                                    </div>
+                                    <div class="form-group">
+                                        {{> afQuickField name="surname" id="surname" label=(_ "modalAddNewContact.surname")}}
+                                    </div>
+                                    <div class="form-group">
+                                        {{> afQuickField name="company" id="company" label=(_ "modalAddNewContact.company")}}
+                                    </div>
+                                    <div class="form-group">
+                                        {{> afQuickField name="title" id="title" label=(_ "modalAddNewContact.title")}}
+                                    </div>
+                                    <div class="form-group">
+                                        {{> afQuickField name="www" id="www" label=(_ "modalAddNewContact.www")}}
+                                    </div>
+                                    <div class="form-group">
+                                        {{> afQuickField name="email" id="email" label=(_ "modalAddNewContact.email")}}
+                                    </div>
+                                    <div class="form-group">
+                                        {{> afQuickField name="industry" id="industry" label=(_ "modalAddNewContact.industry")}}
+                                    </div>
+                                    <div class="form-group">
+                                        {{> afQuickField name="size" id="size" label=(_ "modalAddNewContact.size")}}
+                                    </div>
+                                    <div class="form-group">
+                                        {{> afQuickField name="location" id="location" label=(_ "modalAddNewContact.location")}}
+                                    </div>
+                                    <div class="form-group">
+                                        {{> afQuickField name="linkedin" id="linkedin" label=(_ "modalAddNewContact.linkedin")}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                     <button type="submit" class="btn btn-primary">{{{_ "crm.import.add"}}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/autoForm}}
+</template>
