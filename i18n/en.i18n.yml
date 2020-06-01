@@ -1,0 +1,432 @@
+main:
+  choose: Choose
+  language: The language of the message
+  list: List of sent messages with statistics
+  list2: List of sent messages with statistics
+  polish: Polish
+  english: English
+  Processed: Processed
+  Dropped: Dropped
+  Deferred: Deferred
+  Bounce: Bounce
+  Delivered: Delivered
+  Open: Open
+  Click: Click
+  SpamReport: Spam Report
+  opens: Opens
+  title: Message topic
+  day: Sended
+  contacted: Contacted by
+  contacted2: Contacted
+  yes: yes
+  no: no
+  crm: Add to CRM
+  assign: Assign to:
+  mark: Mark
+  notAlowedEmail: Add not allowed email
+  notAlowedDomain: Add not allowed domain
+members:
+  title: List of available e-mails to be sent
+  name: First name
+  surname: Last name
+  company: Company
+  www: www
+  email: E-mail
+  linkedin: LinkedIn
+  contactedBy: Contacted by
+  contacted: Was contacted
+  industry: Industry
+  actions: Actions
+  open: Open
+  clicks: Clicks
+  last: Last event by user
+  sentAt: Sent at
+  location: Localisation
+  language: Language
+  messageTitle: Message title
+  crmId: CRM ID
+  position: Position
+  edit: Edit
+  deleteModal:
+    title: Confirm
+    text: Are you sure?
+email:
+  subject: Subject
+  from: From
+  fromName: From name
+  tip: You can customize email message by adding fields like: {first_name}, {last_name}, {company}
+  chooseCsv: Choose csv file
+  upload: Upload
+  sendEmails: Send mails
+  sendEmailsModal:
+    title: Confirm
+    text: Are you sure?
+    success: Done!
+    error: There is nothing to send
+  uploadModal:
+    title: Confirm
+    text: Are you sure?
+    validFileMessage: Upload the correct file
+error:
+  invalidData: Incorrect data!
+dashboard:
+  sended: Sended emails
+  month: This month
+  update: Update Now
+  opportunities: Opportunities
+  promising: Promising prospects
+  opened: Opened emails
+menu:
+  title: Cat In Black Message System
+  title2: Message System
+  item:
+    main: Main
+    sent: All sent messages
+    contact: People to contact
+    wrongEmails: People with wrong emails
+    dashboard: Dashboard
+    crm: CRM / E-mails list
+    campaigns: Campains
+    all: All sended e-mails
+    promising: Promising prospects
+    gdpr: GDPR
+    integrations: Integrations
+    settings: Settings
+    out: Log out
+  button:
+    addNotAllowedDomain: Add not allowed domain
+    addNotAllowedEmail: Add not allowed email
+  modal:
+    notAllowedDomain:
+      title: Confirm
+      text: Are you sure you want to add a domain to the excluded? Users in this domain will be removed from the list and will never be imported again
+      success: The domain has been added to the excluded
+    notAllowedEmail:
+      title: Confirm
+      text: Are you sure you want to delete from the user list with this email address?
+      success: User was not found
+    statistics:
+      title: Confirm
+      text: Download the latest statistics?
+login:
+  title: Login to the system
+  form:
+    email: E-mail
+    password: Password
+    loginViaFacebook: Login via Facebook
+    loginViaGoogle: Login via Google
+    submit: Sign In
+    register: Registration
+    reset: Password reset
+    allready: Already a user?
+  notification:
+    wrongCredentials: Incorrect data
+    tooManyRequests: Please try again in a few minutes.
+    unhandledError: Login failed.
+    loginSuccessfull: Logged in successfully!
+lostPassword:
+  title: Password reminder
+  form:
+    email: E-mail
+    submit: Remind me a password
+resetPassword:
+  title: Password reset
+  notification:
+    success: "Check your email account"
+  form:
+    email: E-mail
+    submit: Reset
+setPassword:
+  title: Nowe hasło
+  form:
+    newPassword: A new password
+    submit: Submit
+  notification:
+    success: The password has been successfully changed
+    error: Password could not be changed
+register:
+  pleasProvideProperEmail: Please enter a valid email address
+  userExist: A user with this address already exists
+  title: Registration
+  registered: Registration was successful, you can log in now
+  error: Unable to register. Check the form, all data and try again
+  form:
+    email: E-mail
+    password: Password
+    username: User name
+    submit: Register
+    viaFacebook: Register by Facebook
+    viaGoogle: Register by Google
+    sendgridAPI: SendGrid API Key can be found <a href="https://app.sendgrid.com/settings/api_keys" target="_blank">here</a>
+    sendgridAPI2: SG.*****************************
+    sendgridAPI3: SendGrid API Key
+    agreement: By signing up I agree to not SPAM people
+resetPassword:
+  title: Reset hasła
+  form:
+    password: Hasło
+    submit: Zmień hasło
+    success: Check the mailbox!
+  notification:
+    success: A message has been sent to your email address
+crm:
+  canNotSent: You have already exceeded the sending limit for today
+  noApiKey: Please provide SendGrid Api Key
+  add:
+    title: Confirm
+    text: Do you want to add to CRM?
+    success: Added to CRM
+  mark:
+    title: Confirm
+    text: Do you want to mark as contacted?
+    success: Success
+  addTo:
+    title: Confirm
+    text: Do you want to allocate to this person?
+    success: Success
+  import:
+    import: Import CSV
+    1: 1. Choose your <mark>CSV</mark> file
+    choose: Choose file
+    header: My file has header
+    2: 2. Upload your <mark>CSV</mark> file
+    upload: Upload and parse file
+    3: 3. Match fields
+    close: Close
+    add: Add new contacts
+    mark: Mark your data
+    tags: Add tags
+    categories: Add categories
+    addTag: Add 
+    addCategorie: Add
+    error: An error occurred during import
+    success: The import was successful
+    noRecords: The CSV file has no data, check the file and try again
+    errorRecords: Incorrect data, please try again
+    emailError: It looks like there is no email assigned in the selected columns. Correct it.
+  table:
+    header: Table of leads
+    send: Create new campain
+    subheader: Here is a subtitle for this table
+    name: First name
+    lname: Last name
+    title: Title
+    company: Company
+    email: E-mail
+    category: Category
+    tags: Tags
+    no: Opportunities
+    emailsend: E-mail sent
+    www: www
+    industry: Industry
+    size: Size
+    open: open
+    location: Location
+    linkedin: LinkedIn
+    actions: Actions
+    preview: Preview
+    edit: Edit
+    sendmessage: Send message
+    delete: Delete
+    show: Show contact to whom e-mails was allready sent
+    sendToSelected: Send e-mails to selected (%s from %s)
+    deleteSelected: Delete selected
+    importContact: Import contacts
+    addContact: Add contact
+    filter: Add filter
+    nocategory: none
+    blocked: Show blocked (not allowed to contact)
+    markAsUsed: Mark contact as used
+contact:
+  invalidData: Incorrect data!
+  openAndMark:
+    success: Success!
+edit:
+  button: Delete
+settings:
+  title: Settings
+  email: E-mail
+  email2: Define e-mail addres from which you will be sending emails
+  save: Save
+  form:
+    submit: Save
+  additionalEmail: From what e-mail address to send e-mails
+  change: Change email
+  old: Old password
+  new1: New password
+  new2: New password repeat
+  change2: Change password
+  name: First Name
+  lastName: Last Name
+  address: Address
+  city: City
+  country: Country
+  zip: Postal Code
+  addin: Additional Information
+  update: Update Profile
+  sendOption: Sending options
+  passwordChange: Change Password
+  billing: Billing information
+  additional: Email information
+  apiKeys:
+    sendGrid: sendGrid
+    salesFlare: Api Key
+    salesFlareUserId: User Id
+    hubSpot: Api Key
+    infusionSoft: Api Key
+  notification:
+    success: Hasło zostało pomyślnie zmienione
+    error: Uzupełnij wymagane pola
+    mismatch: Podane hasła nie są identyczne
+gdpr:
+  gdpr: GDPR
+  txt: You can enter individual email addresses or entire domains to which the system will not send email messages. For example, you can enter gmail.com domain.
+  emailInputLabel: Add dissalowed e-mail address
+  domainInputLabel: Add dissalowed domain
+  domainInputPlaceholder: @domain
+  notification:
+    wrongDomainName: Invalid domain name
+    correct: Added successfully
+    deletedEmail: The email has been deleted!
+filter:
+  name: First name
+  lname: Last name
+  title: Title
+  company: Company
+  email: E-mail
+  category: Category
+  tags: Tags
+  no: Opportunities
+  emailsend: E-mail sent
+membersPrev:
+  name: First name
+  surname: Last name
+  title: Title
+  www: www
+  company: Company 
+  industry: Industry
+  size: Size
+  location: Location
+  linkedin: LinkedIn
+  confidence: Confidence
+  status: Status
+  email: E-mail
+  contacted: Contacted 
+  categories: Categories
+  tags: Tags
+  createdAt: Created at 
+  updatedAt: Updated at
+  remove: Remove
+  add: Add
+alerts:
+  success: Success
+  done: Done
+  update: Record updated
+  delete: Record deleted
+  added: Record added
+  warning: Warning
+  noSelected: You need to select items first
+  limitError: Limits
+  limitError2: You used your all limit. Try in 24h
+  tooMuch: Limits
+  tooMuch2: You selected to much email. You current limit is %s
+  title: Warning
+  title2: Please provide message title
+  titleCampain: Please provide campaign name
+  html: Message text
+  html2: Please provide message text. Write someting to people.
+confirm:
+  remove: Are you sure you want to delete? This operation can not be reversed
+  markAsUsed: Are you sure you want to mark it as used?
+  send: Are you sure you want to send a message to selected people?
+  send2: Are you sure you want to send a message?
+  marked: Are you sure you want to change the value?
+errors:
+  canNotAddCategories: This category is allready added
+  canNotAddTags: This tag is allready added
+campaign: 
+  send: Send campaign
+  campaign: Campain info
+  message: Customize your message
+  title: Message title
+  text: Message text
+  submit: Send message
+  addName: Add user first name
+  addLName: Add user last name
+  addCompany: Add user company
+  markers: You can use {first_name}, {last_name} and {company} tags to customize your message title
+  senderName: Sender full name (optional)
+  info: Campain informations
+  campaignTitle: Name of your campaign
+  willBeSendTo: This campaign will be send to %s user(s) between 1 and 30 minutes
+  table:
+    name: Campain name
+    fullname: Full name
+    promised: Promised
+    sendDate: Send date
+    howMany: Messages
+    opens: No. of opens
+    clicks: No. of clicks
+    prom: No. of promising prospects
+    send: Send new campaign
+    table: Table of sended campaigns
+    any: There is no sended campaign. To send it go to your e-mail list (crm), select existing or import/add new contacts and click <mark>&quot;Send emails to selected&quot;</mark> button
+    go: Go CRM
+    here: Here is a subtitle for this table
+    info: Information about %s campaign
+    email: e-mail
+    userdeleted: Contact deleted
+    subject: Subject
+    content: Message content
+    linkedin: Linked In
+    actions: Actions
+mails:
+  table:
+    table: Table of sended campaigns
+    any: There is no sended mails. To send it go to your e-mail list (crm), select existing or import/add new contacts and click <mark>&quot;Send emails to selected&quot;</mark> button
+    go: Go CRM
+    here: Here is a subtitle for this table
+    close: Close
+pro:
+  table:
+    table: Table of promising prospects
+    here: Here is a subtitle for this table
+    any: There is no promising prospects.
+    go: Go CRM
+    here: Here is a subtitle for this table
+    export: Export selected to your CRM
+    used: Mark as used 
+modalAddNewContact:
+  addNew: Add new member/lead
+  desc: Cake pudding cake pie lemon drops gummies pastry topping. Oat cake macaroon sweet roll cake chupa chups bonbon pastry wafer tart. Biscuit caramels gingerbread liquorice danish tart tootsie roll. Halvah candy canes cotton candy caramels cotton candy pastry pie.
+  submit: Add new user
+  name: Name
+  surname: Surname
+  title: Title
+  www: www
+  company: Company
+  industry: Industry
+  size: Size
+  location: Location
+  linkedin: Linkedin
+  email: Email
+  categories: Categories
+  tags: Tags
+stats:
+  header: Email Statistics
+  header2: In this month
+  processed: Processed
+  delivered: Delivered
+  not_delivered: Not delivered
+  emails: emails
+logout:
+  txt: Are you sure you want to log out?
+  done: Logged out! 
+integrations:
+  Sales: Sales flare
+  Hub: Hub Spot
+  Infusion: Infusion soft
+  SalesTxt: Cake pudding cake pie lemon drops gummies pastry topping. Oat cake macaroon sweet roll cake chupa chups bonbon pastry wafer tart. Biscuit caramels gingerbread liquorice danish tart tootsie roll. Halvah candy canes cotton candy caramels cotton candy pastry pie.
+  HubTxt: Cake pudding cake pie lemon drops gummies pastry topping. Oat cake macaroon sweet roll cake chupa chups bonbon pastry wafer tart. Biscuit caramels gingerbread liquorice danish tart tootsie roll. Halvah candy canes cotton candy caramels cotton candy pastry pie.
+  InfusionTxt: Cake pudding cake pie lemon drops gummies pastry topping. Oat cake macaroon sweet roll cake chupa chups bonbon pastry wafer tart. Biscuit caramels gingerbread liquorice danish tart tootsie roll. Halvah candy canes cotton candy caramels cotton candy pastry pie.
+  add: Add integration

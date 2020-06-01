@@ -1,0 +1,19 @@
+<template name="pageAuthLogin">
+    <form class="form-signin" id="login-form">
+        <img class="mb-4 img-fluid" src="/images/cib.png">
+        <h1 class="h3 mb-3 font-weight-normal">{{_ "login.title"}}</h1>
+        <div class="form-group">
+            <label for="inputEmail" class="sr-only">{{_ "login.form.email"}}</label>
+            <input type="email" id="email" class="form-control" placeholder='{{_ "login.form.email"}}' required="" autofocus="" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="sr-only">{{_ "login.form.password"}}</label>
+            <input type="password" id="password" class="form-control" placeholder='{{_ "login.form.password"}}' required="" autocomplete="off">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">{{_ "login.form.submit"}}</button>
+        <hr>
+        <a href="{{pathFor 'authRegister'}}">{{_ "login.form.register"}}</a>
+        <hr>
+        <a href="{{pathFor 'authPasswordReset'}}">{{_ "login.form.reset"}}</a>
+    </form>
+</template>

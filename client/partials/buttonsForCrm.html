@@ -1,0 +1,13 @@
+<template name="buttonsForCrm">
+    <div class="dropdown">
+        <button class="btn btn-link" type="button" id="dropdownMenu{{item._id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,2">
+            <i class="fa fa-ellipsis-v"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu{{item._id}}">
+            <a href="{{pathFor route='preview' _id=item._id}}" class="dropdown-item">{{_ "crm.table.preview"}}</a>
+            <a href="{{pathFor route='edit' _id=item._id}}" class="dropdown-item">{{_ "crm.table.edit"}}</a>
+            <!-- <button class="dropdown-item" type="button">{{_ "crm.table.sendmessage"}}</button> -->
+            <button class="dropdown-item deleteSingleMember" type="button">{{_ "crm.table.delete"}}</button>
+        </div>
+    </div>
+</template>

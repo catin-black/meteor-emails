@@ -1,0 +1,17 @@
+<template name="pagePanelAllSendedEmails">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-plain">
+                <div class="card-header">
+                    <div class="card-header">
+                        <h4 class="card-title">{{_ 'mails.table.table'}}</h4>
+                        <p class="card-category"> {{_ 'mails.table.here'}}</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {{> tabular table=TabularTables.Messages class="table table-hover"}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

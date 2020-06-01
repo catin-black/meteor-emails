@@ -1,0 +1,38 @@
+<template name="newCampain">
+    <form action="#" id="sendCampain">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-user">
+                    <div class="card-header">
+                        <h3 class="card-title">{{_ 'campaign.send'}}</h3>
+                    </div>
+                    <div class="card-body">
+                        <h4>{{_ 'campaign.campaign'}}</h4>
+                        <div class="form-group">
+                            <label for="campaignTitle">{{_ 'campaign.campaignTitle'}}</label>
+                            <input type="text" class="form-control" id="campaignTitle" placeholder="ex. marketing campaign">
+                            <small class="form-text text-muted">{{_ 'campaign.willBeSendTo' howMany}}</small>
+                        </div>
+                        <hr class="mb-3 mt-3">
+                        <h4>{{_ 'campaign.message'}}</h4>
+                        <div class="form-group">
+                            <label for="title">{{_ 'campaign.title'}}</label>
+                            <input type="text" class="form-control" id="title" placeholder="Hello {name}">
+                            <small class="form-text text-muted">{{_ 'campaign.markers'}}</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">{{_ 'campaign.senderName'}}</label>
+                            <input type="text" class="form-control" id="senderName" placeholder="Your full name">
+                        </div>
+                        <hr class="mb-3 mt-3">
+                        <div class="form-group">
+                            <label for="text">{{_ 'campaign.text'}}</label>
+                            <textarea id="text"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary pull-right">{{_ 'campaign.submit'}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</template>
