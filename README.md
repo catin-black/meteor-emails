@@ -18,6 +18,7 @@ Download, run and rock your sales!
 ## Getting Started
 1. Install Node.js - https://nodejs.org/en/download/
 2. Install Meteor - https://www.meteor.com/install
+
 	**OSX / Linux**
 	Run the following command in your terminal to install the latest official Meteor release:
 	```

@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "keywords": "email, sendgrid, meteor",
-  "homepage": "https://catin.black",
+  "homepage": "https://meteoremails.com",
   "author": {
-    "name": "Cat In Black / Czarny Kod",
-    "email": "agent@catin.black"
+    "name": "Adam Trojanczyk",
+    "email": "adam.trojanczyk@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Cat-In-Black/meteor-emails"
+    "url": "https://github.com/catin-black/meteor-emails"
   },
   "scripts": {
     "start": "meteor npm install && meteor --settings settings.json",
