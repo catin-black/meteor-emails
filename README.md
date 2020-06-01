@@ -53,7 +53,8 @@ of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
-* **Adam Trojanczyk** - [catin-black](https://github.com/catin-black)
+* **Adam Trojanczyk** - Author - [catin-black](https://github.com/catin-black)
+* **Tomasz Nolberczak** - Main contributor - [tomasz-nolberczak](https://github.com/tomasz-nolberczak)
 
 See also the list of [contributors](https://github.com/catin-black/meteor-emails/graphs/contributors) who participated in this project.
 
