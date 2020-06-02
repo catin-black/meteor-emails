@@ -6,15 +6,15 @@ import Chart from "chart.js";
 Template.pagePanelDashboard.helpers({
     'allMails': function() {
         const instance = Template.instance();
-        return 300;Messages.find({ sentAt: { $gte: instance.startOfMonth, $lte: instance.endOfMonth } }).count();
+        return Messages.find({ sentAt: { $gte: instance.startOfMonth, $lte: instance.endOfMonth } }).count();
     },
     'opened': function() {
         const instance = Template.instance();
-        return 298;Messages.find({ opens: { $gt: 0 }, sentAt: { $gte: instance.startOfMonth, $lte: instance.endOfMonth } }).count();
+        return Messages.find({ opens: { $gt: 0 }, sentAt: { $gte: instance.startOfMonth, $lte: instance.endOfMonth } }).count();
     },
     'promising': function() {
         const instance = Template.instance();
-        return 112;Messages.find({ sentAt: { $gte: instance.startOfMonth, $lte: instance.endOfMonth }, $or: [{ opens: { $gt: 1 } }, { clicks: { $gt: 0 } }] }).count();
+        return Messages.find({ sentAt: { $gte: instance.startOfMonth, $lte: instance.endOfMonth }, $or: [{ opens: { $gt: 1 } }, { clicks: { $gt: 0 } }] }).count();
     }
 });
 
@@ -38,9 +38,9 @@ Template.pagePanelDashboard.onCreated(function() {
 
 Template.pagePanelDashboard.onRendered(function() {
     const ctx = document.getElementById("chartEmail").getContext('2d');
-    const processed = 1000; //Messages.find({ status: "processed" }).count();
-    const delivered = 780; //Messages.find({ status: "delivered" }).count();
-    const not_delivered = 220; //Messages.find({ status: "not_delivered" }).count();
+    const processed = Messages.find({ status: "processed" }).count();
+    const delivered = Messages.find({ status: "delivered" }).count();
+    const not_delivered = Messages.find({ status: "not_delivered" }).count();
     const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
