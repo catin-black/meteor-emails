@@ -382,34 +382,3 @@ previewView = PanelController.extend({
     }
 });
 
-
-Router.route('/track-link/:linkId', {
-    name: 'trackLink',
-    controller: 'trackLinkController'
-});
-
-
-
-
-trackLinkController = RouteController.extend({
-    action: function() {
-        if (this.ready()) {
-            console.log(this.params.linkId);
-            Meteor.call('trackLink', this.params.linkId, function(e, r) {
-                if (!e) window.location.replace(r);
-            });
-        }
-    }
-});
-
-trackOpensController = RouteController.extend({
-    action: function() {
-        console.log(this.params.query.track);
-        console.log(this.params.img);
-        if (this.ready()) {
-            console.log('xxxx');
-            Meteor.call('trackOpens', this.params.query.track);
-            return true;
-        }
-    }
-}, { where: "server" });
