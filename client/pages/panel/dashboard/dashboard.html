@@ -21,7 +21,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-calendar-o"></i> {{_ "dashboard.month"}} 
+                        <i class="fa fa-calendar-o"></i> {{_ "dashboard.month"}}
                         <button id="stats" type="button" class="float-right btn btn-link stats"><i class="fa fa-refresh"></i> {{_ "dashboard.update"}} </button>
                     </div>
                 </div>
@@ -39,7 +39,11 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">{{_ "dashboard.opened"}}</p>
-                                <p class="card-title">{{opened}}
+                                <p class="card-title">
+                                    {{#if sendGridError}}
+                                        <a href="#" id="showStatsError"><i class="fa fa-warning text-warning"></i></a>
+                                    {{/if}}
+                                    {{opened}}
                                 </p>
                             </div>
                         </div>
@@ -107,15 +111,6 @@
             </div>
         </div>
     </div>
-    {{#if sendGridError}}
-        <div class="row">
-            <div class="col">
-                <div class="alert alert-warning" role="alert">
-                  {{_ "dashboard.sendGridError"}}
-                </div>
-            </div>
-        </div>
-    {{/if}}
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
