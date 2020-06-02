@@ -430,3 +430,5 @@ integrations:
   HubTxt: Cake pudding cake pie lemon drops gummies pastry topping. Oat cake macaroon sweet roll cake chupa chups bonbon pastry wafer tart. Biscuit caramels gingerbread liquorice danish tart tootsie roll. Halvah candy canes cotton candy caramels cotton candy pastry pie.
   InfusionTxt: Cake pudding cake pie lemon drops gummies pastry topping. Oat cake macaroon sweet roll cake chupa chups bonbon pastry wafer tart. Biscuit caramels gingerbread liquorice danish tart tootsie roll. Halvah candy canes cotton candy caramels cotton candy pastry pie.
   add: Add integration
+server:
+  youAreNotAllowed: You are not allowed to do this
