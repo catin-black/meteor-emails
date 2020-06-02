@@ -12,7 +12,6 @@ Meteor.methods({
             check(args.agreement, Boolean);
             check(args.sendgridAPI, String);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
@@ -39,7 +38,6 @@ Meteor.methods({
             }
             return createdUserId;
         } catch (e) {
-            console.log(e);
             if (e.error == 403) throw new Meteor.Error('register-error', 500, TAPi18n.__('register.userExist'));
             else throw new Meteor.Error('register-error', 500, TAPi18n.__('register.error'));
         }
@@ -55,19 +53,8 @@ Meteor.methods({
             throw new Error(err);
         }
     },
-
-    exportToCSV: function() {
-        return CollectionToCSV.toCSV(Members.find({
-            sent: true,
-            $and: [{ clicks: { $eq: 0 } }, { open: { $eq: 0 } }],
-            notAllowed: false,
-            // contactedBy: { $ne: null },
-            sentAt: { $ne: null }
-        }));
-    },
-
     canISend: function(userId) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         return true;
         const sentAt = SendInformation.findOne({
             userId: userId
@@ -87,11 +74,10 @@ Meteor.methods({
         } else return true;
     },
     additionalEmail: function(params) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             check(params.email, String);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
@@ -101,12 +87,11 @@ Meteor.methods({
                 }
             });
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('members-error', 500, e.details);
         }
     },
     sendEmails: function(params) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             check(params.members, Array);
             check(params.subject, String);
@@ -114,12 +99,11 @@ Meteor.methods({
             check(params.name, String);
             check(params.html, String);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
             const userId = Meteor.userId();
-            if (!userId) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+            if (!userId) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
             const canISend = Meteor.call('canISend', userId);
             const settings = Settings.findOne({ userId: userId });
             if (!canISend) throw new Meteor.Error('send-error', 403, TAPi18n.__('crm.canNotSent'));
@@ -209,12 +193,11 @@ Meteor.methods({
                 }
             });
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('members-error', 500, e.details);
         }
     },
     crm: function(memberId) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             const accessTokenString = `Bearer ${getSalesFlareApiKey()}`;
             const member = Members.findOne({
@@ -251,7 +234,6 @@ Meteor.methods({
                 }
             }, (error, result) => {
                 if (error) {
-                    console.log(error);
                     return false;
                 }
                 id.return(result.data.id)
@@ -268,7 +250,6 @@ Meteor.methods({
                     },
                 }, (error, result) => {
                     if (error) {
-                        console.log(error);
                         return false;
                     }
 
@@ -289,7 +270,6 @@ Meteor.methods({
                     },
                 }, (error, result) => {
                     if (error) {
-                        console.log(error);
                         return false;
                     }
                     account2.return(result.data.id);
@@ -308,7 +288,6 @@ Meteor.methods({
                 },
             }, (error, result) => {
                 if (error) {
-                    console.log(error);
                     return false;
                 }
                 accountContact.return(result.data.id);
@@ -322,11 +301,10 @@ Meteor.methods({
             });
             return true;
         } catch (e) {
-            console.log(e);
         }
     },
     task: function(id) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         return;
         const member = Members.findOne({ _id: id });
         if (!member || member.notAllowed || member.updatedInCRM) return false;
@@ -344,7 +322,6 @@ Meteor.methods({
                 }
             }, (error, result) => {
                 if (error) {
-                    console.log(error);
                     task.return(false);
                 }
                 task.return(result.data.id)
@@ -361,13 +338,12 @@ Meteor.methods({
         }
     },
     import: function(params) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             check(params.newContents, Array);
             check(params.categoriesCSV, Array);
             check(params.tagsCSV, Array);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
@@ -419,12 +395,11 @@ Meteor.methods({
                 fromDisallowedDomains: membersFromDisallowedDomains,
             };
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, e.details);
         }
     },
     addDisallowedDomain: function(args) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         check(args.domain, String);
 
         Members.update({ userId: Meteor.userId(), email: { $regex: args.domain } }, {
@@ -461,7 +436,7 @@ Meteor.methods({
         });
     },
     removeDisallowedDomain: function(args) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         check(args.domainId, String);
 
         return DisallowedDomains.remove({
@@ -470,7 +445,7 @@ Meteor.methods({
         });
     },
     removeDisallowedEmail: function(args) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         check(args.emailId, String);
 
         const disallowedEmail = DisallowedEmails.findOne({ _id: args.emailId, userId: Meteor.userId() });
@@ -527,7 +502,7 @@ Meteor.methods({
             let statisticsNumber = 0;
             const userId = Meteor.userId();
             if (this.connection != null) {
-                if (!userId) throw new Meteor.Error('stat-error', 500, "You are not allow to do this");
+                if (!userId) throw new Meteor.Error('stat-error', 500, TAPi18n.__('server.youAreNotAllowed'));
             }
 
             const accessTokenStringS = `Bearer ${getSendgridApiKey()}`;
@@ -542,6 +517,7 @@ Meteor.methods({
                     'content-type': 'application/json; charset=utf-8'
                 }
             }, (error, result) => {
+                console.log(result);
                 if (error) {
                     return sendgridMessages.return(false);
 
@@ -575,7 +551,6 @@ Meteor.methods({
             });
             return statisticsNumber + " statistics was analised";
         } catch (error) {
-            console.log(error);
         }
     },
     settingsGetApiKey: function(serviceName) {
@@ -599,42 +574,18 @@ Meteor.methods({
                     return settings.APIkey.infusionSoft;
             }
         } catch (error) {
-            console.log(error);
+            throw new Meteor.Error('get-api-error', 500, error.details);
         }
     },
     addTo: function(id) {
         return OtherMembers.update({ _id: id });
     },
-    trackLink: function(linksId) {
-        check(linksId, String);
-        Messages.update({ "links.id": linksId }, {
-            $inc: {
-                clicks: 1
-            }
-        });
-        const redirect = Messages.findOne({ "links": { $elemMatch: { id: linksId } } });
-        if (redirect && redirect.links[0] && redirect.links[0].originalLink) {
-            return redirect.links[0].originalLink
-        } else {
-            return 'https://catin.black'
-        }
-    },
-    trackOpens: function(openId) {
-
-        check(openId, String);
-        return Messages.update({ openId: openId }, {
-            $inc: {
-                opens: 1
-            }
-        });
-    },
     addCat: function(params) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             check(params.value, String);
             check(params.memberId, String);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
@@ -642,17 +593,15 @@ Meteor.methods({
             if (!exist) Members.update({ userId: Meteor.userId(), _id: params.memberId }, { $push: { categories: params.value } });
             else throw new Meteor.Error('update-error', 500, TAPi18n.__('errors.canNotAddCategories'));
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('update-error', 500, e.details);
         }
     },
     addTag: function(params) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             check(params.value, String);
             check(params.memberId, String);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
@@ -660,79 +609,69 @@ Meteor.methods({
             if (!exist) Members.update({ userId: Meteor.userId(), _id: params.memberId }, { $push: { tags: params.value } });
             else throw new Meteor.Error('update-error', 500, TAPi18n.__('errors.canNotAddTags'));
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('update-error', 500, e.details);
         }
     },
     removeCat: function(params) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             check(params.value, String);
             check(params.memberId, String);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
             return Members.update({ userId: Meteor.userId(), _id: params.memberId }, { $pull: { categories: params.value } });
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('update-error', 500, e.details);
         }
     },
     removeTag: function(params) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             check(params.value, String);
             check(params.memberId, String);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
             return Members.update({ userId: Meteor.userId(), _id: params.memberId }, { $pull: { tags: params.value } });
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('update-error', 500, e.details);
         }
     },
     block: function(params) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             check(params.block, Boolean);
             check(params.memberId, String);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
             return Members.update({ userId: Meteor.userId(), _id: params.memberId }, { $set: { blocked: params.block } });
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('update-error', 500, e.details);
         }
     },
     removeMembers: function(params) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             check(params.members, Array);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
             return Members.remove({ userId: Meteor.userId(), _id: { $in: params.members } });
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('update-error', 500, e.details);
         }
     },
     markAsUsed: function(params) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             check(params.messages, Array);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
@@ -753,54 +692,47 @@ Meteor.methods({
 
             return true;
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('update-error', 500, e.details);
         }
     },
     markContactAsUsed: function(params) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             check(params.memberId, String);
             check(params.contacted, Boolean);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
             return Members.update({ userId: Meteor.userId(), _id: params.memberId }, { $set: { contacted: params.contacted } });
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('update-error', 500, e.details);
         }
     },
     markContactAsContacted: function(params) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             check(params.memberId, String);
             check(params.sent, Boolean);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
             return Members.update({ userId: Meteor.userId(), _id: params.memberId }, { $set: { sent: params.sent } });
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('update-error', 500, e.details);
         }
     },
     removeCampaigns: function(params) {
-        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, "You are not allow to do this");
+        if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
         try {
             check(params.campaigns, Array);
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('check-error', 500, TAPi18n.__('crm.import.errorRecords'));
         }
         try {
             return SendInformation.remove({ userId: Meteor.userId(), _id: { $in: params.campaigns } });
         } catch (e) {
-            console.log(e);
             throw new Meteor.Error('update-error', 500, e.details);
         }
     }
@@ -876,7 +808,6 @@ function stats(email) {
     return statistics;
 }
 
-
 function insertMember(member, categoriesCSV, tagsCSV) {
     try {
         Members.insert({
@@ -898,12 +829,9 @@ function insertMember(member, categoriesCSV, tagsCSV) {
             tags: tagsCSV.length ? tagsCSV : null,
         });
     } catch (e) {
-        console.log(e);
         throw new Meteor.Error('members-error', 500, e.details);
     }
 }
-
-
 
 function getSendgridApiKey() {
     return Meteor.call('settingsGetApiKey', 'sendgrid');
@@ -924,20 +852,6 @@ function getHubspotApiKey() {
 function getInfusionSoftApiKey() {
     return Meteor.call('settingsGetApiKey', 'infusionsoft');
 }
-
-
-function urlify(text) {
-    var urlRegex = /(href="https?:\/\/[^\s]+)/g;
-    return text.replace(urlRegex, function(url) {
-        return 'url';
-    });
-    // or alternatively
-    // return text.replace(urlRegex, '<a href="$1">$1</a>')
-}
-
-var text = "Find me at http://www.example.com and also at http://stackoverflow.com";
-var html = urlify(text);
-
 
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
