@@ -1,0 +1,28 @@
+<template name="pageAuthRegister">
+    <form class="form-signin" id="register-form">
+        <img class="mb-4 img-fluid" src="/images/cib.png">
+        <h1 class="h3 mb-3 font-weight-normal">{{_ "register.title"}}</h1>
+        <div class="form-group">
+            <label for="inputEmail" class="sr-only">{{_ "register.form.email"}}</label>
+            <input type="email" id="email" class="form-control" placeholder='{{_ "register.form.email"}}' required="" autofocus="" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="password" class="sr-only">{{_ "register.form.password"}}</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder='{{_ "register.form.password"}}' required="" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="sendgridAPI" class="sr-only">{{{_ "register.form.sendgridAPI3"}}}</label>
+            <input type="text" id="sendgridAPI" name="sendgridAPI" class="form-control" placeholder='{{_ "register.form.sendgridAPI3"}}' required="" autocomplete="off">
+            <small>{{{_ "register.form.sendgridAPI"}}}</small>
+        </div>
+        <p class="agreement">
+            <input type="checkbox" id="agreement" name="agreement" required="" />
+            <label for="agreement">{{{_ "register.form.agreement"}}}</label>
+        </p>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">{{_ "register.form.submit"}}</button>
+        <hr>
+        <p>{{_ "login.form.allready"}}</p>
+        <a href="{{pathFor 'authLogin'}}">{{_ "login.form.submit"}}</a>
+        <hr>
+    </form>
+</template>

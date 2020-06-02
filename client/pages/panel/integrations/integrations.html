@@ -1,0 +1,30 @@
+<template name="pagePanelIntegrations">
+    <div class="row">
+        <div class="col-md-12">
+            {{#autoForm collection="Settings" doc=userSettings id="integrationsUpdateSalesFlareAPI" type="update"}}
+            <div class="card card-user">
+                <div class="card-header">
+                    <h3 class="card-title">{{_ "integrations.Sales"}}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                {{> afQuickField name="APIkey.salesFlare" label=(_ "settings.apiKeys.salesFlare")}}
+                            </div>
+                            <div class="form-group">
+                                {{> afQuickField name="APIkey.salesFlareUserId" label=(_ "settings.apiKeys.salesFlareUserId")}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                            <button type="submit" class="btn btn-primary">{{_ "integrations.add"}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/autoForm}}
+        </div>
+    </div>
+</template>

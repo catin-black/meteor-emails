@@ -1,0 +1,32 @@
+<template name="pagePanelCrm">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-plain">
+                <div class="card-header">
+                    <h4 class="card-title">{{_ "crm.table.header"}}</h4>
+                    <p class="card-category">{{_ "crm.table.subheader"}}</p>
+                    <!-- <button type="button" class="btn btn-primary"><i class="fa fa-filter mr-2"></i>{{_ "crm.table.filter"}}</button> -->
+                    <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#modalImportCsv"><i class="fa fa-upload mr-2"></i>{{_ "crm.table.importContact"}}</button>
+                    <a href="{{pathFor route='add'}}" class="btn btn-success float-right"><i class="fa fa-plus mr-2"></i>{{_ "crm.table.addContact"}}</a>
+                   
+                </div>
+                <div class="card-body">
+                    {{> tabular table=TabularTables.Members selector=selector class="table table-hover"}}
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="showContacted">
+                        <label class="custom-control-label" for="showContacted">{{_ "crm.table.show"}}</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="showBlocked">
+                        <label class="custom-control-label" for="showBlocked">{{_ "crm.table.blocked"}}</label>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="sendToSelected"><i class="fa fa-paper-plane mt-1 mb-1 mr-2"></i>{{_ "crm.table.sendToSelected" selected left}}</button>
+                    <button type="button" class="btn btn-danger" id="deleteSelected"><i class="fa fa-trash mt-1 mb-1 mr-2"></i>{{_ "crm.table.deleteSelected"}}</button>
+                    <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#modalImportCsv"><i class="fa fa-upload mr-2"></i>{{_ "crm.table.importContact"}}</button>
+                    <a href="{{pathFor route='add'}}" class="btn btn-success float-right"><i class="fa fa-plus mr-2"></i>{{_ "crm.table.addContact"}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>modalImportCsv}}
+</template>

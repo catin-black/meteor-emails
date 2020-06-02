@@ -1,0 +1,13 @@
+<template name="layoutPanel">
+    <div class="wrapper" id="ckPanel">
+        {{> partialPanelSidebar}}
+        <div class="main-panel">
+            {{> partialPanelHeader}}
+            <div class="content">
+                {{> yield}}
+            </div>
+        </div>
+        {{> partialPanelFooter}}
+    </div>
+
+</template>

@@ -1,0 +1,15 @@
+<template name="noCampaigns">
+   {{#unless campaigns}}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{_ 'campaign.table.table'}}</h5>
+                    <p class="card-text">{{{_ 'campaign.table.any'}}}</p>
+                    <a href="{{pathFor 'panelCrm'}}" class="btn btn-primary">{{_ 'campaign.table.go'}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/unless}}
+</template>

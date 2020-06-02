@@ -1,0 +1,127 @@
+<template name="pagePanelDashboard">
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5 col-md-4">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-delivery-fast text-warning"></i>
+                            </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                            <div class="numbers">
+                                <p class="card-category">{{_ "dashboard.sended"}}</p>
+                                <p class="card-title"> {{allMails}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-calendar-o"></i> {{_ "dashboard.month"}}
+                        <button id="stats" type="button" class="float-right btn btn-link stats"><i class="fa fa-refresh"></i> {{_ "dashboard.update"}} </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5 col-md-4">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-tap-01 text-success"></i>
+                            </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                            <div class="numbers">
+                                <p class="card-category">{{_ "dashboard.opened"}}</p>
+                                <p class="card-title">
+                                    {{#if sendGridError}}
+                                        <a href="#" id="showStatsError"><i class="fa fa-warning text-warning"></i></a>
+                                    {{/if}}
+                                    {{opened}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-calendar-o"></i> {{_ "dashboard.month"}}
+                        <button id="stats2" type="button" class="float-right btn btn-link"><i class="fa fa-refresh"></i> {{_ "dashboard.update"}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-5 col-md-4">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-diamond text-danger"></i>
+                            </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                            <div class="numbers">
+                                <p class="card-category">{{_ "dashboard.promising"}}</p>
+                                <p class="card-title">{{promising}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-clock-o"></i> {{_ "dashboard.month"}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5 col-md-4">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-favourite-28 text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                            <div class="numbers">
+                                <p class="card-category">{{_ "dashboard.opportunities"}} </p>
+                                <p class="card-title">Soon
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-refresh"></i> {{_ "dashboard.update"}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header ">
+                    <h5 class="card-title">{{_ "stats.header"}}</h5>
+                    <p class="card-category">{{_ "stats.header2"}}</p>
+                </div>
+                <div class="card-body" id="chartBody">
+                    <canvas id="chartEmail"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

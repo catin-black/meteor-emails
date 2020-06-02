@@ -1,0 +1,84 @@
+<template name="pagePanelGdpr">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-user">
+                <div class="card-header">
+                    <h3 class="card-title">{{_ "gdpr.gdpr"}}</h3>
+                    <p>{{_ "gdpr.txt"}}</p>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-12">
+                                    <form action="" id="add-disallowed-email">
+                                        <div class="form-group">
+                                            <label for="">{{_ 'gdpr.emailInputLabel'}}</label>
+                                            <input type="email" class="form-control" placeholder="Email">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                                    </form>
+                                    {{#if disallowedEmails}}
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>{{item.email}}</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {{#each item in disallowedEmails}}
+                                            <tr>
+                                                <td>{{item.email}}</td>
+                                                <td>
+                                                    <button class="btn btn-danger remove-email" data-id="{{item._id}}"><i class="fa fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        {{/each}}
+                                        </tbody>
+                                    </table>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-12">
+                                    <form action="#" id="add-disallowed-domain">
+                                        <div class="form-group">
+                                            <label for="">{{_ 'gdpr.domainInputLabel'}}</label>
+                                            <input type="text" class="form-control" placeholder="{{_ 'gdpr.domainInputPlaceholder'}}">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                                    </form>
+                                    {{#if disallowedDomains}}
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>Domain</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {{#each item in disallowedDomains}}
+                                                <tr>
+                                                    <td>{{item.domain}}</td>
+                                                    <td>
+                                                        <button class="btn btn-danger remove-domain" data-id="{{item._id}}"><i
+                                                                class="fa fa-trash"></i></button>
+                                                    </td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
