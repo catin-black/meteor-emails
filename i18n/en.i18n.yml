@@ -398,7 +398,7 @@ pro:
     used: Mark as used 
 modalAddNewContact:
   addNew: Add new member/lead
-  desc: Cake pudding cake pie lemon drops gummies pastry topping. Oat cake macaroon sweet roll cake chupa chups bonbon pastry wafer tart. Biscuit caramels gingerbread liquorice danish tart tootsie roll. Halvah candy canes cotton candy caramels cotton candy pastry pie.
+  desc:  
   submit: Add new user
   name: Name
   surname: Surname
@@ -426,9 +426,9 @@ integrations:
   Sales: Sales flare
   Hub: Hub Spot
   Infusion: Infusion soft
-  SalesTxt: Cake pudding cake pie lemon drops gummies pastry topping. Oat cake macaroon sweet roll cake chupa chups bonbon pastry wafer tart. Biscuit caramels gingerbread liquorice danish tart tootsie roll. Halvah candy canes cotton candy caramels cotton candy pastry pie.
-  HubTxt: Cake pudding cake pie lemon drops gummies pastry topping. Oat cake macaroon sweet roll cake chupa chups bonbon pastry wafer tart. Biscuit caramels gingerbread liquorice danish tart tootsie roll. Halvah candy canes cotton candy caramels cotton candy pastry pie.
-  InfusionTxt: Cake pudding cake pie lemon drops gummies pastry topping. Oat cake macaroon sweet roll cake chupa chups bonbon pastry wafer tart. Biscuit caramels gingerbread liquorice danish tart tootsie roll. Halvah candy canes cotton candy caramels cotton candy pastry pie.
+  SalesTxt:  
+  HubTxt:  
+  InfusionTxt:  
   add: Add integration
 server:
   youAreNotAllowed: You are not allowed to do this
