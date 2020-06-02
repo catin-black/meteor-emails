@@ -32,11 +32,21 @@ Download, run and rock your sales!
 	> choco install meteor
 	```
 	Meteor supports Windows 7/Windows Server 2008 R2 and up. The installer uses Chocolatey, which has its own requirements. Disabling antivirus (Windows Defender, etc.) will improve performance.
+
 3. Download files or clone repository
 4. Run project
 	```
 	> meteor npm install && meteor --settings settings.json
 	```
+5. Open your browser with the URL [http://localhost:3000](http://localhost:3000)
+6. You will see the registration page. Provide your e-mail from which you will be sending messages, and your password to protect your data. SendGrid API key is optional when you register, but you will need to add it (in settings)  before you will start sending e-mails. All data will be kept on your local machine, or if you upload it to your server, then they will be stored there.
+![.meteoremails](http://meteoremails.com/image/register.jpg)
+
+7. After registration and login, you will get access to all features of the system. You can send messages from CRM. Just add contacts or upload your CSV file. Then select contacts to whom you want to send an e-mail and create a new campaign. 
+
+![.meteoremails](http://meteoremails.com/image/crm.jpg)
+
+![.meteoremails](http://meteoremails.com/image/campain.jpg)
 
 ## Sendgrid
 This application is using the SendGrid SMTP server to send emails. All you need is to create an account on sendgrid.com, create an API key and paste it to the app.
