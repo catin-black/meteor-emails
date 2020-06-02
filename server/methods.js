@@ -524,7 +524,6 @@ Meteor.methods({
                 else return sendgridMessages.return(statistics);
             });
             sendgridMessagesResponse = sendgridMessages.wait();
-            console.log(sendgridMessagesResponse);
             if (sendgridMessagesResponse === 403) {
                 throw new Meteor.Error('stat-error', 500, TAPi18n.__('dashboard.sendGridError'));
             } else if (!sendgridMessagesResponse) {
