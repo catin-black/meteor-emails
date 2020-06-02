@@ -70,12 +70,12 @@ export function showQuestionAlert(title, text) {
 }
 
 export function showBasicAlert(args) {
-    Swal(args);
+    return Swal.fire(args);
 }
 
 function showAlert(args) {
-    Swal({
-        type: args.type,
+    return Swal.fire({
+        icon: args.type,
         title: args.title,
         text: args.text
     });
