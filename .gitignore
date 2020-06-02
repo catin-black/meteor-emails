@@ -1,2 +1,4 @@
 node_modules/
 package-lock.json
+/meteor-emails.sublime-project
+/meteor-emails.sublime-workspace
