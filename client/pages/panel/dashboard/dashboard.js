@@ -15,6 +15,10 @@ Template.pagePanelDashboard.helpers({
     'promising': function() {
         const instance = Template.instance();
         return Messages.find({ sentAt: { $gte: instance.startOfMonth, $lte: instance.endOfMonth }, $or: [{ opens: { $gt: 1 } }, { clicks: { $gt: 0 } }] }).count();
+    },
+    'sendGridError': function() {
+        const settings = Settings.findOne();
+        return settings && settings.sendStatsError ? true : false;
     }
 });
 

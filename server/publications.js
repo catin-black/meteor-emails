@@ -77,10 +77,17 @@ Meteor.publish('statistics', function() {
             status: 1
         }
     });
+    const sendGridError = Settings.find({
+        userId: this.userId
+    }, {
+        fields: {
+            sendStatsError: 1
+        }
+    });
     const stats = Statistics.find({
         userId: this.userId,
     });
-    return [messages, stats];
+    return [messages, stats, sendGridError];
 });
 
 Meteor.publish('userIntegrations', function() {

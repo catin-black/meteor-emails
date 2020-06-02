@@ -76,6 +76,7 @@ dashboard:
   opportunities: Opportunities
   promising: Promising prospects
   opened: Opened emails
+  sendGridError: Cannot get information about opened emails statistics from SendGrid. Please check if you enabled "Additional Email Activity History" in your account or check for information directly in Send Grid Activity tab
 menu:
   title: Cat In Black Message System
   title2: Message System

@@ -300,8 +300,7 @@ Meteor.methods({
                 }
             });
             return true;
-        } catch (e) {
-        }
+        } catch (e) {}
     },
     task: function(id) {
         if (!Meteor.userId()) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
@@ -517,17 +516,18 @@ Meteor.methods({
                     'content-type': 'application/json; charset=utf-8'
                 }
             }, (error, result) => {
-                console.log(result);
                 if (error) {
                     return sendgridMessages.return(false);
-
                 }
                 const statistics = JSON.parse(result.content).messages;
                 if (!statistics || !statistics.length) return sendgridMessages.return(false);
                 else return sendgridMessages.return(statistics);
             });
             sendgridMessagesResponse = sendgridMessages.wait();
-            if (!sendgridMessagesResponse) return false;
+            if (!sendgridMessagesResponse) {
+                sendStatsError(true);
+                return false;
+            }
             sendgridMessagesResponse.forEach(function(stat) {
                 const email = stat.to_email;
                 const status = stat.status;
@@ -549,8 +549,10 @@ Meteor.methods({
                 });
                 statisticsNumber++;
             });
+            sendStatsError(false);
             return statisticsNumber + " statistics was analised";
-        } catch (error) {
+        } catch (e) {
+            sendStatsError(true);
         }
     },
     settingsGetApiKey: function(serviceName) {
@@ -855,4 +857,16 @@ function getInfusionSoftApiKey() {
 
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
+}
+
+function sendStatsError(status) {
+    const userId = Meteor.userId();
+    if (!userId) throw new Meteor.Error('send-error', 500, TAPi18n.__('server.youAreNotAllowed'));
+    Settings.update({
+        userId: userId
+    }, {
+        $set: {
+            sendStatsError: status
+        }
+    });
 }
