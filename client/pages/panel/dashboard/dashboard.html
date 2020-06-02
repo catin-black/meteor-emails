@@ -107,6 +107,15 @@
             </div>
         </div>
     </div>
+    {{#if sendGridError}}
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-warning" role="alert">
+                  {{_ "dashboard.sendGridError"}}
+                </div>
+            </div>
+        </div>
+    {{/if}}
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
