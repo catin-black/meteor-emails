@@ -1,0 +1,20 @@
+<template name="pagePanelCampaigns">
+    {{> noCampaigns}}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-plain">
+                <div class="card-header">
+                    <div class="card-header">
+                        <h4 class="card-title">{{_ 'campaign.table.table'}}</h4>
+                        <p class="card-category"> {{_ 'campaign.table.here'}}</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {{> tabular table=TabularTables.SendInformation class="table table-hover"}}
+                    <button type="button" class="btn btn-danger" id="deleteSelected"><i class="fa fa-trash mt-1 mb-1 mr-2"></i>{{_ "crm.table.deleteSelected"}}</button>
+                    <a href="{{pathFor 'panelCrm'}}" class="btn btn-success float-right"><i class="fa fa-plus mr-2"></i>{{_ "crm.table.send"}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

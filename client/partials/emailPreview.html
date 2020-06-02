@@ -1,0 +1,23 @@
+<template name="emailPreview">
+    <button type="button" class="btn btn-secondary preview" data-toggle="modal" data-target="#{{item._id}}">
+     <i class="fa fa-eye"></i>
+    </button>
+    <div class="modal fade" id="{{item._id}}" tabindex="-1" role="dialog" aria-labelledby="{{item._id}}label" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="{{item._id}}label">{{subject}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            {{{item.originalContent}}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{{_ 'mails.table.close'}}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</template>

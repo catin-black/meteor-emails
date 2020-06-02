@@ -1,0 +1,118 @@
+<template name="modalImportCsv">
+    <div class="modal fade bd-modal-lg" id="modalImportCsv" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{{_ "crm.import.import"}}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="step step1">
+                        <h6 class="mt-3 mb-3">{{{_ "crm.import.1"}}}</h6>
+                        <div class="custom-file mb-2">
+                            <input type="file" class="custom-file-input" id="csvFile" accept=".csv">
+                            <label class="custom-file-label" for="csvFile"
+                                   aria-describedby="inputGroupFileAddon02">{{csvFilename}}</label>
+                        </div>
+                    </div>
+                    {{#if csvUploaded}}
+                        <div class="step step2">
+                            <h6 class="mt-4 mb-3">{{{_ "crm.import.2"}}}</h6>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="csv-has-header">
+                                <label class="custom-control-label" for="csv-has-header">{{{_
+                                        "crm.import.header"}}}</label>
+                            </div>
+                            <button type="button" id="uploadCsvAndParse" class="btn btn-primary">{{{_
+                                    "crm.import.upload"}}}</button>
+                        </div>
+                        {{#if csvParsed}}
+                            <div class="step step3">
+                                <h6 class="mt-4 mb-3">{{{_ "crm.import.3"}}}</h6>
+                                <div class="table-responsive">
+                                    <table class="table csv">
+                                        <thead>
+                                        <tr>
+                                            {{#each column in csvColumns}}
+                                                <th>
+                                                    <select class="custom-select" id="" name="csv-columns[]">
+                                                        <option selected value="">Choose...</option>
+                                                        {{#each value in csvAvailableColumnsToMap}}
+                                                            <option value="{{value}}">{{value}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </th>
+                                            {{/each}}
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {{#each row in csvFirstRows}}
+                                            <tr>
+                                                {{#each column in row}}
+                                                    {{#if column}}
+                                                        <td>{{column}}</td>
+                                                    {{/if}}
+                                                {{/each}}
+                                            </tr>
+                                        {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <h6 class="mt-4 mb-3">{{{_ "crm.import.mark"}}}</h6>
+                                <div class="form-group">
+                                    <label for="categoriesCSV">{{{_ "crm.import.categories"}}}</label>
+                                    <input type="text" class="form-control catinput" id="categoriesCSV">
+                                  </div>
+                                <div class="form-group">
+                                    <label for="tagsCSV">{{{_ "crm.import.tags"}}}</label>
+                                    <input type="text" class="form-control tagsinput" id="tagsCSV" >
+                                  </div>
+                            </div>
+                        {{/if}}
+                    {{/if}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{{_
+                            "crm.import.close"}}}</button>
+                    <button type="button" class="btn btn-primary" id="mapCsvAndPushToServer">{{{_ "crm.import.add"}}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> modalImportCsvReport}}
+</template>
+
+<template name="modalImportCsvReport">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="modalImportCsvReport">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{{_ "crm.import.import"}}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Added: {{report.added}}
+                    </p>
+                    <p>
+                        existed: {{report.existed}}
+                    </p>
+                    <p>
+                        withInvalidEmail: {{report.withInvalidEmail}}
+                    </p>
+                    <p>
+                        fromDisallowedDomains: {{report.fromDisallowedDomains}}
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{{_"crm.import.close"}}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,363 @@
+<template name="preview">
+	<div class="row">
+		{{#if member.blocked}}
+		<div class="col-12">
+			<div class="alert alert-warning text-dark" role="alert">
+				<h4 class="alert-heading mt-3">Warning!</h4>
+				<p class="mb-3">This person is set as not contact any more. You are not able to send e-mail to this person</p>
+				<hr>
+				<button class="btn btn-danger block" data-block="false" type="button"><i class="fa fa-times-circle mr-3"></i> Allow to contact again</button>
+			</div>
+		</div>
+		{{/if}}
+		<div class="col-md-6">
+			<div class="card card-user">
+				<div class="card-header">
+					<h3 class="card-title">{{member.name}} {{member.surname}}</h3>
+				</div>
+				<div class="card-body">
+					{{#if isEdit}} 
+						{{#autoForm collection="Members" doc=member id="memberEdit" type="update"}}
+							<div class="form-group">
+								{{> afQuickField name="name" label=name}}
+							</div>
+							<div class="form-group">
+								{{> afQuickField name="surname" label=surname}}
+							</div>
+							<div class="form-group">
+								{{> afQuickField name="title" label=title}}
+							</div>
+							<div class="form-group">
+								{{> afQuickField name="www" label=www}}
+							</div>
+							<div class="form-group">
+								{{> afQuickField name="company" label=company}}
+							</div>
+							<div class="form-group">
+								{{> afQuickField name="industry" label=industry}}
+							</div>
+							<div class="form-group">
+								{{> afQuickField name="size" label=size}}
+							</div>
+							<div class="form-group">
+								{{> afQuickField name="location" label=location}}
+							</div>
+							<div class="form-group">
+								{{> afQuickField name="linkedin" label=linkedin}}
+							</div>
+							<div class="form-group">
+								{{> afQuickField name="confidence" label=confidence}}
+							</div>
+							<div class="form-group">
+								{{> afQuickField name="status" label=status}}
+							</div>
+							<div class="form-group">
+								{{> afQuickField name="email" label=email}}
+							</div>
+							<div class="form-group">
+								{{> afQuickField name="contacted" label=contacted}}
+							</div>		                   
+							<button type="submit" class="btn btn-primary">Submit</button>
+					   {{/autoForm}}
+					{{else}}
+					<!-- EDIT -->
+					<!-- PREVIEW -->
+					<table class="table table-sm">
+						<thead>
+							<th>
+								Field
+							</th>
+							<th>Status</th>
+						</thead>
+						<tbody>
+							{{#if member.name}}
+								<tr>
+									<td>{{_ 'membersPrev.name'}}</td>
+									<td>{{member.name}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.surname}}
+								<tr>
+									<td>{{_ 'membersPrev.surname'}}</td>
+									<td>{{member.surname}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.title}}
+								<tr>
+									<td>{{_ 'membersPrev.title'}}</td>
+									<td>{{member.title}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.www}}
+								<tr>
+									<td>{{_ 'membersPrev.www'}}</td>
+									<td>{{member.www}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.company}}
+								<tr>
+									<td>{{_ 'membersPrev.company'}}</td>
+									<td>{{member.company}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.industry}}
+								<tr>
+									<td>{{_ 'membersPrev.industry'}}</td>
+									<td>{{member.industry}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.size}}
+								<tr>
+									<td>{{_ 'membersPrev.size'}}</td>
+									<td>{{member.size}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.location}}
+								<tr>
+									<td>{{_ 'membersPrev.location'}}</td>
+									<td>{{member.location}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.linkedin}}
+								<tr>
+									<td>{{_ 'membersPrev.linkedin'}}</td>
+									<td><a href="{{member.linkedin}}" target="_blank">{{member.linkedin}}</a></td>
+								</tr>
+							{{/if}}
+							{{#if member.confidence}}
+								<tr>
+									<td>{{_ 'membersPrev.confidence'}}</td>
+									<td>{{member.confidence}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.status}}
+								<tr>
+									<td>{{_ 'membersPrev.status'}}</td>
+									<td>{{member.status}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.email}}
+								<tr>
+									<td>{{_ 'membersPrev.email'}}</td>
+									<td><a href="mailto:{{member.email}}" target="_blank">{{member.email}}</a></td>
+								</tr>
+							{{/if}}
+							{{#if member.contacted}}
+								<tr>
+									<td>{{_ 'membersPrev.contacted'}}</td>
+									<td>{{member.contacted}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.categories}}
+								<tr>
+									<td>{{_ 'membersPrev.categories'}}</td>
+									<td>{{{member.categoriesString}}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.tags}}
+								<tr>
+									<td>{{_ 'membersPrev.tags'}}</td>
+									<td>{{{member.tagsString}}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.createdAt}}
+								<tr>
+									<td>{{_ 'membersPrev.createdAt'}}</td>
+									<td>{{member.createdAt}}</td>
+								</tr>
+							{{/if}}
+							{{#if member.updatedAt}}
+								<tr>
+									<td>{{_ 'membersPrev.updatedAt'}}</td>
+									<td>{{member.updatedAt}}</td>
+								</tr>
+							{{/if}}
+						</tbody>
+					</table>
+					<a href="{{pathFor route='edit' _id=member._id}}" class="btn btn-primary">Edit this lead</a> {{/if}}
+					<!-- PREVIEW -->
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-12">
+					<div class="card card-user  bg-light">
+						<div class="card-header">
+							<h3 class="card-title">
+									More information
+									{{#if member.promising}}
+										<small class="float-right">
+												<mark class="pl-3 pr-3">Promising prospect
+												<i class="fa fa-diamond mr-3"></i>
+												</mark>
+										</small>
+									{{/if}}
+							</h3>
+						</div>
+						<div class="card-body">
+							<table class="table">
+								<thead>
+									<th>
+										Title
+									</th>
+									<th>Status</th>
+									<th class="text-right">Action</th>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											Creation date
+										</td>
+										<td>
+											{{member.createdAt}}
+										</td>
+										<td class="text-right"></td>
+									</tr>
+									<tr>
+										<td>
+											Email was send to this person
+										</td>
+										<td>
+											{{#if member.sent}}
+												<i class="fa fa-check"></i>
+											{{else}}
+												<i class="fa fa-times"></i>
+											{{/if}}
+											
+										</td>
+										<td class="text-right">
+											{{#if member.sent}}
+												<button id="markAsContacted" data-value="false" class="btn btn-secundary btn-sm" type="button">set as false</button>
+											{{else}}
+												<button id="markAsContacted" data-value="true" class="btn btn-secundary btn-sm" type="button">set as true</button>
+											{{/if}}
+											
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Sent date
+										</td>
+										<td>
+											{{#if member.sentAt}}
+												{{member.sentAt}}
+											{{else}}
+												<i class="fa fa-times"></i>
+											{{/if}}
+										</td>
+										<td class="text-right"></td>
+									</tr>
+									<tr>
+										<td>
+											How many times e-mail was open
+										</td>
+										<td>
+											0
+										</td>
+										<td class="text-right"></td>
+									</tr>
+									<tr>
+										<td>
+											How many times e-mail was clicked
+										</td>
+										<td>
+											15
+										</td>
+										<td class="text-right"></td>
+									</tr>
+									<tr>
+										<td>
+											Lead marked as used (contacted twice)
+										</td>
+										<td>
+											{{#if member.contacted}}
+												<i class="fa fa-check"></i>
+											{{else}}
+												<i class="fa fa-times"></i>
+											{{/if}}
+										</td>
+										<td class="text-right">
+											{{#if member.contacted}}
+												<button id="markAsUsed" data-value="false" class="btn btn-secundary btn-sm" type="button">set as false</button>
+											{{else}}
+												<button id="markAsUsed" data-value="true" class="btn btn-secundary btn-sm" type="button">set as true</button>
+											{{/if}}
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							 
+						</div>
+					</div>
+					{{#if isEdit}} 
+						 <div class="card card-user  bg-light">
+							<div class="card-header">
+								<h3 class="card-title">{{_ 'membersPrev.categories'}}</h3>
+						  </div>
+						 <div class="card-body">		
+								<h6>{{_ 'membersPrev.categories'}}</h6>						
+								<table class="table">									
+									 <tbody>
+										{{#each member.categories}}
+											<tr>
+												<td>
+													{{this}}
+												</td>
+												<td class="text-right">
+													<button type=button class="btn btn-secundary btn-sm removeCat" data-cat="{{this}}">{{_ 'membersPrev.remove'}}</button>
+												</td>
+											</tr>
+										{{/each}}
+										<tr>
+											<td>
+												<div class="form-group">
+													<input type="text" class="addCat form-control" placeholder="add new">
+												</div>
+											</td>
+											<td class="text-right">
+												<button type=button class="btn btn-secundary btn-sm  addCat" >{{_ 'membersPrev.add'}}</button>
+											</td>
+										</tr>
+									 </tbody>
+								</table>
+								 <h6>{{_ 'membersPrev.tags'}}</h6>
+								 <table class="table">									  
+									  <tbody>
+										 {{#each member.tags}}
+											 <tr>
+												 <td>
+													 {{this}}
+												 </td>
+												 <td class="text-right">
+													 <button type=button class="btn btn-secundary btn-sm removeTag" data-tag="{{this}}">{{_ 'membersPrev.remove'}}</button>
+												 </td>
+											 </tr>
+										 {{/each}}
+										 <tr>
+											 <td>
+												 <div class="form-group">
+													 <input type="text" class="addTag form-control" placeholder="add new">
+												 </div>
+											 </td>
+											 <td class="text-right">
+												 <button type=button class="btn btn-secundary btn-sm addTag">{{_ 'membersPrev.add'}}</button>
+											 </td>
+										 </tr>
+									  </tbody>
+								</table>
+						  </div>
+					</div>
+				{{/if}}
+				</div>
+				<div class="col-12">
+					<button class="btn btn-secundary" type="button"><i class="fa fa-arrow-circle-o-up mr-3"></i> Export to your external CRM</button>
+					{{#unless member.blocked}}
+						<button class="btn btn-secundary block" data-block="true" type="button"><i class="fa fa-times-circle mr-3"></i> Dissalow to contact</button>
+					{{/unless}}
+					<button class="btn btn-danger remove" type="button"><i class="fa fa-trash mr-3"></i> Remove</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
