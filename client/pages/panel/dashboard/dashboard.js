@@ -1,6 +1,6 @@
 import { Loader } from "/client/helpers/loader";
 import { callServerMethod } from "/client/helpers/server-method";
-import { showConfirmDialog, showSuccessNotification } from "/client/helpers/helpers";
+import { showConfirmDialog, showSuccessNotification, showWarningAlert} from "/client/helpers/helpers";
 import Chart from "chart.js";
 
 Template.pagePanelDashboard.helpers({
@@ -31,6 +31,10 @@ Template.pagePanelDashboard.events({
                 showSuccessNotification(TAPi18n.__('alerts.done'));
             }
         });
+    },
+    'click #showStatsError': function(event, template) {
+        event.preventDefault();
+        return showWarningAlert(TAPi18n.__('dashboard.sendGridErrorTitle'), TAPi18n.__('dashboard.sendGridError'));
     }
 });
 

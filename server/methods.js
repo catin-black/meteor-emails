@@ -517,41 +517,46 @@ Meteor.methods({
                 }
             }, (error, result) => {
                 if (error) {
-                    return sendgridMessages.return(false);
+                    return sendgridMessages.return(403);
                 }
                 const statistics = JSON.parse(result.content).messages;
                 if (!statistics || !statistics.length) return sendgridMessages.return(false);
                 else return sendgridMessages.return(statistics);
             });
             sendgridMessagesResponse = sendgridMessages.wait();
-            if (!sendgridMessagesResponse) {
+            console.log(sendgridMessagesResponse);
+            if (sendgridMessagesResponse === 403) {
+                throw new Meteor.Error('stat-error', 500, TAPi18n.__('dashboard.sendGridError'));
+            } else if (!sendgridMessagesResponse) {
                 sendStatsError(true);
                 return false;
-            }
-            sendgridMessagesResponse.forEach(function(stat) {
-                const email = stat.to_email;
-                const status = stat.status;
-                const opens = parseInt(stat.opens_count);
-                const clicks = parseInt(stat.clicks_count);
-                const lastEventOnEmail = stat.last_event_time;
-                const messageTitle = stat.subject;
-                const emailId = stat.msg_id.split('.')[0];
-                let update = { userId: userId, messageId: { '$regex': emailId } };
-                if (this.connection === null) update = { messageId: { '$regex': emailId } };
-                Messages.update(update, {
-                    $set: {
-                        sendGridStatus: status,
-                        opens: opens,
-                        clicks: clicks,
-                        status: status,
-                        lastEventOnEmail: new Date(lastEventOnEmail)
-                    }
+            } else {
+                sendgridMessagesResponse.forEach(function(stat) {
+                    const email = stat.to_email;
+                    const status = stat.status;
+                    const opens = parseInt(stat.opens_count);
+                    const clicks = parseInt(stat.clicks_count);
+                    const lastEventOnEmail = stat.last_event_time;
+                    const messageTitle = stat.subject;
+                    const emailId = stat.msg_id.split('.')[0];
+                    let update = { userId: userId, messageId: { '$regex': emailId } };
+                    if (this.connection === null) update = { messageId: { '$regex': emailId } };
+                    Messages.update(update, {
+                        $set: {
+                            sendGridStatus: status,
+                            opens: opens,
+                            clicks: clicks,
+                            status: status,
+                            lastEventOnEmail: new Date(lastEventOnEmail)
+                        }
+                    });
+                    statisticsNumber++;
                 });
-                statisticsNumber++;
-            });
-            sendStatsError(false);
-            return statisticsNumber + " statistics was analised";
+                sendStatsError(false);
+                return statisticsNumber + " statistics was analised";
+            }
         } catch (e) {
+            throw new Meteor.Error('stat-error', 500, e.details);
             sendStatsError(true);
         }
     },
@@ -575,8 +580,8 @@ Meteor.methods({
                 case 'infusionsoft':
                     return settings.APIkey.infusionSoft;
             }
-        } catch (error) {
-            throw new Meteor.Error('get-api-error', 500, error.details);
+        } catch (e) {
+            throw new Meteor.Error('get-api-error', 500, e.details);
         }
     },
     addTo: function(id) {
