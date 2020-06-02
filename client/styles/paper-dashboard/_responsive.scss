@@ -1,4 +1,7 @@
 @media screen and (max-width: 991px){
+      #chartBody {
+        height: 300px;
+      }
       .main-panel.nav-open{
           right: 0;
           @include transform-translate-x(260px);
