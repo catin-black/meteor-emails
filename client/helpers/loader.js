@@ -1,18 +1,15 @@
-import {SessionDataIsLoading} from "/client/helpers/sessions";
+import { SessionDataIsLoading } from "/client/helpers/sessions";
 
 export class Loader {
-    constructor() {
-    	
-    }
+  constructor() {}
 
-    show() {
-    	$('body').append('<div id="preloader"><div></div></div>');
-        SessionDataIsLoading.set(true);
-    }
+  show() {
+    $("body").append('<div id="preloader"><div></div></div>');
+    SessionDataIsLoading.set(true);
+  }
 
-    hide() {
-    	$('#preloader').remove();
-        SessionDataIsLoading.set(false);
-    }
+  hide() {
+    $("#preloader").remove();
+    SessionDataIsLoading.set(false);
+  }
 }
-

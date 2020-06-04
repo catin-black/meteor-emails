@@ -1,4 +1,3 @@
-import { _ } from 'lodash';
-Meteor.startup(function() {
-    Migrations.migrateTo('latest');
+Meteor.startup(function () {
+  Migrations.migrateTo("latest");
 });

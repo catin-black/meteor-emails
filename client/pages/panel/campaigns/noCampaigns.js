@@ -1,5 +1,5 @@
 Template.noCampaigns.helpers({
-    campaigns: function() {
-        return SendInformation.find().fetch();
-    }
+  campaigns: function () {
+    return SendInformation.find().fetch();
+  },
 });
