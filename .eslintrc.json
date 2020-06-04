@@ -1,0 +1,21 @@
+{
+  "plugins": ["meteor"],
+  "extends": ["eslint:recommended", "plugin:meteor/recommended"],
+  "env": {
+    "meteor": true,
+    "browser": true
+  },
+  "globals": {
+    "TAPi18n": "writable",
+    "DisallowedDomains": "writable",
+    "Settings": "writable",
+    "Members": "writable",
+    "AutoForm": "writable",
+    "SendInformation": "writable",
+    "DisallowedEmails": "writable",
+    "Migrations": "writable",
+    "Statistics": "writable",
+    "SyncedCron": "writable",
+    "Messages": "writable"
+  }
+}
