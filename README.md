@@ -12,7 +12,7 @@ Completely free and open source project to fight against stagnation in your comp
 Download, run and rock your sales!
 
 
-![.meteoremails](http://meteoremails.com/image/dashboard-analytics.png)
+![.meteoremails](http://meteoremails.com/image/dashboard-analytics.jpg)
 
 
 ## Getting Started
