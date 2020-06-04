@@ -1,6 +1,4 @@
-'use strict';
-import { Meteor } from 'meteor/meteor';
-import { _ } from 'lodash';
+"use strict";
+import { Meteor } from "meteor/meteor";
 
-Meteor.startup(function() {
-});
+Meteor.startup(function () {});
