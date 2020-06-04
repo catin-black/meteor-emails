@@ -2,7 +2,12 @@
   "name": "meteor-emails",
   "version": "0.0.1",
   "private": true,
-  "keywords": "email, sendgrid, meteor",
+  "keywords": [
+    "meteor",
+    "open-source",
+    "email",
+    "sendgrid"
+  ],
   "homepage": "https://meteoremails.com",
   "author": {
     "name": "Adam Trojanczyk",
@@ -14,7 +19,12 @@
   },
   "scripts": {
     "start": "meteor npm install && meteor --settings settings.json",
-    "visualize": "meteor --production --extra-packages bundle-visualizer --settings settings.json"
+    "visualize": "meteor --production --extra-packages bundle-visualizer --settings settings.json",
+    "lint": "eslint .",
+    "pretest": "npm run lint --silent"
+  },
+  "eslintConfig": {
+    "extends": "@meteorjs/eslint-config-meteor"
   },
   "dependencies": {
     "@babel/runtime": "^7.10.1",
@@ -58,5 +68,15 @@
     "tablesorter": "^2.31.3",
     "urllib": "^2.35.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@meteorjs/eslint-config-meteor": "^1.0.5",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-import-resolver-meteor": "^0.4.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-meteor": "^7.0.0",
+    "eslint-plugin-react": "^7.20.0"
+  }
 }
