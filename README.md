@@ -11,6 +11,18 @@ Send cold emails for free!
 Completely free and open source project to fight against stagnation in your company, caused by the COVID-19 pandemic!
 Download, run and rock your sales!
 
+## Genesis 
+
+Some time ago, I created a tool for my own use, which sent cold emails to potential customers. It served me basically for everyday work. Sending an email, then - when contact was promising - retrying via LinkedIn and exporting to CRM.
+I got many good relationships with other people because of that.
+
+I worked on it, hoping that one day it would see a full-paid version and I will start making money on it. 
+
+Looking closely at the current situation on the world, I thought that such a tool could be perhaps useful to others. It is a pity that it is locked up. That’s why I decided to release it as an open-source solution! 
+
+Simple license, open code, absolutely free. 🔥🔥🔥
+
+I hope it will be useful to someone ❤️
 
 ![.meteoremails](http://meteoremails.com/image/dashboard-analytics.jpg)
 
