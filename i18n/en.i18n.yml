@@ -15,7 +15,7 @@ main:
   SpamReport: Spam Report
   opens: Opens
   title: Message topic
-  day: Sended
+  day: Sent
   contacted: Contacted by
   contacted2: Contacted
   yes: yes
@@ -70,7 +70,7 @@ email:
 error:
   invalidData: Incorrect data!
 dashboard:
-  sended: Sended emails
+  sent: Sent emails
   month: This month
   update: Update Now
   opportunities: Opportunities
@@ -89,7 +89,7 @@ menu:
     dashboard: Dashboard
     crm: CRM / E-mails list
     campaigns: Campains
-    all: All sended e-mails
+    all: All sent e-mails
     promising: Promising prospects
     gdpr: GDPR
     integrations: Integrations
@@ -371,8 +371,8 @@ campaign:
     clicks: No. of clicks
     prom: No. of promising prospects
     send: Send new campaign
-    table: Table of sended campaigns
-    any: There is no sended campaign. To send it go to your e-mail list (crm), select existing or import/add new contacts and click <mark>&quot;Send emails to selected&quot;</mark> button
+    table: Table of sent campaigns
+    any: There is no sent campaign. To send it go to your e-mail list (crm), select existing or import/add new contacts and click <mark>&quot;Send emails to selected&quot;</mark> button
     go: Go CRM
     here: Here is a subtitle for this table
     info: Information about %s campaign
@@ -384,8 +384,8 @@ campaign:
     actions: Actions
 mails:
   table:
-    table: Table of sended campaigns
-    any: There is no sended mails. To send it go to your e-mail list (crm), select existing or import/add new contacts and click <mark>&quot;Send emails to selected&quot;</mark> button
+    table: Table of sent campaigns
+    any: There is no sent mails. To send it go to your e-mail list (crm), select existing or import/add new contacts and click <mark>&quot;Send emails to selected&quot;</mark> button
     go: Go CRM
     here: Here is a subtitle for this table
     close: Close
