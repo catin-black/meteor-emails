@@ -83,24 +83,22 @@ Meteor.methods({
         TAPi18n.__("server.youAreNotAllowed")
       );
 
-    return true;
-
-    // const sentAt = SendInformation.findOne({
-    //     userId: userId
-    // }, {
-    //     sort: {
-    //         sentAt: -1
-    //     }
-    // });
-    // let diff = 1;
-    // if (!sentAt) return true;
-    // const iscurrentDate = moment(sentAt.sentAt).isSame(new Date(), "day");
-    // if (iscurrentDate) {
-    //     const set = Settings.findOne({
-    //         userId: userId
-    //     });
-    //     return set.howManyEmails < sentAt.howMany;
-    // } else return true;
+    const sentAt = SendInformation.findOne({
+        userId: userId
+    }, {
+        sort: {
+            sentAt: -1
+        }
+    });
+    let diff = 1;
+    if (!sentAt) return true;
+    const iscurrentDate = moment(sentAt.sentAt).isSame(new Date(), "day");
+    if (iscurrentDate) {
+        const set = Settings.findOne({
+            userId: userId
+        });
+        return set.howManyEmails < sentAt.howMany;
+    } else return true;
   },
   additionalEmail: function (params) {
     if (!Meteor.userId())
