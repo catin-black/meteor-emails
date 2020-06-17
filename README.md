@@ -107,3 +107,12 @@ See also the list of [contributors](https://github.com/catin-black/meteor-emails
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
+## What's new
+* 0.0.12
+Fixed problem with the limit of emails that can be sent in one day.
+
+* 0.0.11 
+Fixed problem with adding new contacts.
+
+* 0.0.1
+First release.
