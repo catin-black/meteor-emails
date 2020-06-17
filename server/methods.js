@@ -75,8 +75,9 @@ Meteor.methods({
       throw new Error(err);
     }
   },
-  canISend: function (userId) {
-    if (!Meteor.userId())
+  canISend: function () {
+    const userId = Meteor.userId();
+    if (!userId)
       throw new Meteor.Error(
         "send-error",
         500,
@@ -97,7 +98,8 @@ Meteor.methods({
         const set = Settings.findOne({
             userId: userId
         });
-        return set.howManyEmails < sentAt.howMany;
+
+        return set.howManyEmails >= sentAt.howMany;
     } else return true;
   },
   additionalEmail: function (params) {
@@ -158,7 +160,7 @@ Meteor.methods({
           500,
           TAPi18n.__("server.youAreNotAllowed")
         );
-      const canISend = Meteor.call("canISend", userId);
+      const canISend = Meteor.call("canISend");
       const settings = Settings.findOne({ userId: userId });
       if (!canISend)
         throw new Meteor.Error("send-error", 403, TAPi18n.__("crm.canNotSent"));
