@@ -40,9 +40,8 @@ I hope it will be useful to someone ❤️
 	For compatibility, Linux binaries are built with CentOS 6.4 i386/amd64.
 
 	**Windows**
-	First install [Chocolatey](https://chocolatey.org/install), then run this command using an **Administrator command prompt**:
 	```
-	> choco install meteor
+	> npm install meteor -g
 	```
 	Meteor supports Windows 7/Windows Server 2008 R2 and up. The installer uses Chocolatey, which has its own requirements. Disabling antivirus (Windows Defender, etc.) will improve performance.
 
@@ -108,6 +107,8 @@ See also the list of [contributors](https://github.com/catin-black/meteor-emails
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## What's new
+* 0.0.13
+Update to the > 2 Meteor version and fix problem with start on Windows
 * 0.0.12
 Fixed problem with the limit of emails that can be sent in one day.
 
