@@ -108,7 +108,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## What's new
 * 0.0.13
-Update to the > 2 Meteor version and fix problem with start on Windows
+Update to the newest Meteor version and fix problem with start on Windows
 * 0.0.12
 Fixed problem with the limit of emails that can be sent in one day.
 
