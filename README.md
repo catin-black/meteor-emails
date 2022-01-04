@@ -107,6 +107,8 @@ See also the list of [contributors](https://github.com/catin-black/meteor-emails
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## What's new
+* 0.0.14
+Update to 2.5.2 Meteor version and update packages
 * 0.0.13
 Update to the newest Meteor version and fix problem with start on Windows
 * 0.0.12
