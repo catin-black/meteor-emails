@@ -1,4 +1,5 @@
 "use strict";
+import "jquery/dist/jquery.js";
 import "bootstrap/dist/js/bootstrap.js";
 import "summernote/dist/summernote-bs4.js";
 import "summernote/dist/summernote-bs4.css";
